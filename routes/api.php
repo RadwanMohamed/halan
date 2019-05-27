@@ -15,6 +15,13 @@ use Illuminate\Http\Request;
 
 Route::group(['middleware'=>['api']],function(){
 
+    Route::post('login', 'Auth\LoginController@login');
+
+    Route::post('logout', 'Auth\LoginController@logout');
+    Route::post('/users/store','Api\User\UserController@store');
+    Route::get('/target','Api\HomeController@targetCity');
+    Route::get('/settings',"Api\Setting\SettingController@index");
+
     // beginning users routes
 
     Route::post('/password/email','Api\User\UserController@send');
